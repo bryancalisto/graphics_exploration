@@ -65,6 +65,8 @@ int main() {
 	VBO1.Unbind();
 	EBO1.Unbind();
 
+	GLuint uniformID = glGetUniformLocation(shaderProgram.ID, "scale");
+
 	// Run until window is closed
 	while (!glfwWindowShouldClose(window)) {
 		// Specify color in background
@@ -73,6 +75,7 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shaderProgram.Activate();
+		glUniform1f(uniformID, 0.5f);
 
 		VAO1.Bind();
 
